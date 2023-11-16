@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<!-- Header-->
+<header class="py-5 ">
+    <div class="container-fluid px-lg-5">
+        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+            <div class="m-4 m-lg-5">
+                <h1 class="display-5 fw-bold">Vote Leader of your choice.</h1><br>
+                <p class="fs-4 ">It's time to make the right choice by choosing  the  <strong>Leaders</strong> who wil  enpower  our  and lead pur country. Cast your vote for your favorite person, 
+                 the one you trust and become the the trusted leader by leading and making things right in the country.
+                     Your voice matters in recognizing and making the best choice.</p>
+                <a class="btn btn-primary btn-lg" href="#votingSection">Let's vote</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Page Content-->
+  <!--======================== gallary section======================-->
+  <section id="votingSection" class="gallary section-padding pt-5">
+    <div class="container">
+       <div class="row">
+        <div class="col-md-12 ">
+          <div class="section-header text-center pb-5">
+            <h2>OUr  voting <span class="text-primary pt-5 ">sections</span></h2>
+            <h3 class="w-100 pt-5">
+                <h3 class="display-5 fw-lighter align-items-center">Please choose from our voting <strong>sections </strong>to proceed</h3>
+                
+            </h3>
+          </div>
+        </div>
+       </div>
+
+       <div class="row p-4"> 
+       
+         
+            
+            {% for category in categories  %}
+                
+        
+                <div class="col-lg-6 col-md-12 col-lg-4">
+                <div class="card bg-light border-0 h-100">
+                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+                        
+                        <h2 class="fs-4 fw-bold">{{category.title}}</h2>
+                        <br>
+                        <p class="mb-0">{{category.description | truncatechars:100}}</p> 
+                        <br>
+                    </div>
+                    <a class="btn btn-primary btn-lg" href="{% url 'detail' category.slug %}">Vote</a>
+                </div>
+                </div> 
+
+            {% endfor %} 
+        </div> 
+        
+    </div>
+  </section>
+  
+
+{% endblock content %}
